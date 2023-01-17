@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseConnectionService } from './database/databse-connection.service';
 import { UserModule } from './modules/user/user.module';
+import { CartModule } from './modules/cart/cart.module';
 
 
 @Module({
@@ -16,6 +17,7 @@ import { UserModule } from './modules/user/user.module';
       useClass: DatabaseConnectionService,
     }),
     UserModule,
+    CartModule,
     ],
 })
 export class AppModule {}
