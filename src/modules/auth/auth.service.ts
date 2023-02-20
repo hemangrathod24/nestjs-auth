@@ -8,6 +8,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from "@nestjs/typeorm";
 import { ChangePasswordDto } from "../user/dto/change-password.dto";
 
+
 @Injectable()
 export class AuthService {
 
@@ -17,24 +18,7 @@ export class AuthService {
         @InjectRepository(User) private userRepository: Repository<User>
       ) {}
 
-      // async createUser(createUserDto: CreateUserDto) {
-      //   const users = await this.userService.findByUserName(createUserDto.userName)
-        
-      //   console.log(users);
-        
-      //   if (users != null) {
-      //     throw new BadRequestException("Sorry :)Already Email In Use ");
-      //   }
 
-      //   const saltOrRounds = await bcrypt.genSalt();
-
-      //   const hashPassword = await bcrypt.hash(createUserDto.password, saltOrRounds);
-    
-      //   console.log(hashPassword, "-----------------------------------------------------------");
-        
-      //   const user = await this.userService.create(createUserDto,hashPassword);
-      //   return user;
-      // }
 
       async createUser(body: CreateUserDto) {
         const users = await this.userService.findByUserName(body.userName);
@@ -95,3 +79,6 @@ export class AuthService {
 
       }
 
+
+       
+      // practiced implementing typeorm relation oneToMany and ManyToOne.
